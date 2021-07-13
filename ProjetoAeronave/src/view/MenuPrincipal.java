@@ -62,6 +62,12 @@ public class MenuPrincipal extends JFrame {
 		mnParametrosDoSistema.add(mntmCadastrarAeronave);
 		
 		JMenuItem mntmCadastrarVoo = new JMenuItem("Cadastrar Voo");
+		mntmCadastrarVoo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+			}
+		});
 		mnParametrosDoSistema.add(mntmCadastrarVoo);
 		
 		JMenuItem mntmVoltar = new JMenuItem("Voltar");
