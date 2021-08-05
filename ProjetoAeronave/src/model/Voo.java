@@ -49,4 +49,10 @@ public class Voo {
 		this.hora = hora;
 	}
 	
+	@Override
+	public String toString() {
+		
+		return aeronave.getModelo() + " [Num]: " + nro + " [Data - Hora]: " + data + " - " + hora;
+	}
+	
 }

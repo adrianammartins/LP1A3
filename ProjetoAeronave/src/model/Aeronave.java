@@ -16,4 +16,9 @@ public class Aeronave {
 		this.modelo = modelo;
 	}
 	
+	@Override
+	public String toString() {
+		return getModelo();
+	}
+	
 }

@@ -3,6 +3,7 @@ package view;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
@@ -19,6 +20,7 @@ public class CadastroAeronave extends JInternalFrame {
 	private JTextField modelo;
 	private JTextField fileiras;
 	private JTextField assentos;
+	private static List<Aviao> listAviao;
 
 	/**
 	 * Launch the application.
@@ -27,7 +29,7 @@ public class CadastroAeronave extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroAeronave frame = new CadastroAeronave();
+					CadastroAeronave frame = new CadastroAeronave(listAviao);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,11 +37,12 @@ public class CadastroAeronave extends JInternalFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	public CadastroAeronave() {
+	public CadastroAeronave(List<Aviao> lista) {
+		listAviao = lista;
 		setMaximizable(true);
 		setClosable(true);
 		setTitle("Cadastro de Aeronave");
@@ -60,31 +63,30 @@ public class CadastroAeronave extends JInternalFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				if (modelo.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Modelo do Avi„o n„o preenchido!");
+					JOptionPane.showMessageDialog(null, "Modelo do Avi√£o n√£o preenchido!");
 					return;
 				}
 				if (fileiras.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Fileiras do Avi„o n„o preenchido!");
+					JOptionPane.showMessageDialog(null, "Fileiras do Avi√£o n√£o preenchido!");
 					return;
 				}
 				if (assentos.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Assentos do Avi„o n„o preenchido!");
+					JOptionPane.showMessageDialog(null, "Assentos do Avi√£o n√£o preenchido!");
 					return;
 				}
 				
 				try{
-					int linhas = Integer.valueOf(fileiras.getText()).intValue();
-					int colunas = Integer.valueOf(assentos.getText()).intValue();
+					int linhas = Integer.valueOf(fileiras.getText().trim()).intValue();
+					int colunas = Integer.valueOf(assentos.getText().trim()).intValue();
 
-					//TODO COMO LEVAR O OBJETO AVIAO CRIADO PARA TELA PRINCIPAL
 					Aviao aviao = new Aviao(modelo.getText(), linhas, colunas);
-					
+					listAviao.add(aviao);
 					
 					JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!");
 					
 				} catch (Exception ex){
 					ex.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Erro na criÁ„o da Aeronave - Valores n„o permitidos");
+					JOptionPane.showMessageDialog(null, "Erro na cria√ß√£o da Aeronave - Valores no permitidos");
 				} finally {
 					modelo.setText("");
 					fileiras.setText("");
