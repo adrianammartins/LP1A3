@@ -21,8 +21,6 @@ import javax.swing.border.EmptyBorder;
 import model.Aviao;
 import model.Voo;
 import java.awt.Panel;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 
 public class MenuPrincipal extends JFrame {
 
@@ -165,12 +163,8 @@ public class MenuPrincipal extends JFrame {
 		
 		Panel panel = new Panel();
 		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBounds(0, 0, 1113, 472);
+		panel.setBounds(10, 10, 1103, 452);
 		desktopPane.add(panel);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/aviao.jpg")));
-		panel.add(lblNewLabel);
 		
 	}
 	
